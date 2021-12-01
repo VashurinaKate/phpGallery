@@ -42,8 +42,16 @@
         </header>
         <div class="content">
             <?php
-                include "blocks/content.php";
-                include "blocks/form.php";
+                // include "blocks/content.php";
+                // include "blocks/form.php";
+                include "config.php";
+
+                $sql = "select * from goods";
+                $res = mysqli_query($connect, $sql);
+
+                while($data = mysqli_fetch_assoc($res)) {
+                    echo "automobile {$data['title']} price: {$data['price']}</br>";
+                }
             ?>
         </div>
         <footer>
