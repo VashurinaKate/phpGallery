@@ -12,8 +12,8 @@ if ($action == 'delete') {
     $price = $_GET['price'];
     $sql = "update goods set price=$price where id=$id";
     if (mysqli_query($connect, $sql)) {
-        $quety = "select title from goods where id=$id";
-        $res = mysqli_query($connect, $sql);
+        $query = "select title from goods where id=$id";
+        $res = mysqli_query($connect, $query);
         $title = mysqli_fetch_assoc($res)['title'];
         header("Location: index.php?title=$title");
     }
