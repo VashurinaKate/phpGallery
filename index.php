@@ -41,10 +41,21 @@
             ?>
         </header>
         <div class="content">
+            <div class="images_wrapper">
             <?php
-                include "blocks/content.php";
-                include "blocks/form.php";
-            ?>
+                // include "blocks/content.php";
+                include "config.php";
+
+                $sql = "select * from images";
+                $res = mysqli_query($connect, $sql);
+
+                while($data = mysqli_fetch_assoc($res)):?>
+                    <a href="full_image.php?id=<?=$data['id']?>" target="blank">
+                        <img src="images/small/<?=$data['title']?>" alt="<?= $data['alt']?>">
+                    </a>
+                <?php endwhile; ?>
+            </div>
+            <?php include "blocks/form.php"; ?>
         </div>
         <footer>
             
